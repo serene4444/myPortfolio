@@ -322,6 +322,30 @@ img {
   transform: scale(1.1);
 }
 
+
+.work__info {
+  padding: 1rem;
+  background-color: #d8d8d8;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+   align-items: center;
+   text-align: center;
+     min-height: 80px; /* adjust to your needs */
+}
+
+.work__title {
+   font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--first-color);
+  margin-bottom: 0.25rem;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+
 /* ===== CONTACT =====*/
 .contact__input {
   width: 100%;
