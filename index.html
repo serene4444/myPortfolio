@@ -305,6 +305,19 @@
             font-size: 4rem;
             color: white;
             margin-bottom: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-image.fallback {
+            background: var(--gradient);
         }
 
         .social-links {
@@ -371,10 +384,19 @@
 
         .about-image {
             position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image .profile-image {
+            width: 300px;
+            height: 300px;
         }
 
         .about-image img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 1rem;
             box-shadow: var(--shadow-lg);
         }
@@ -809,7 +831,7 @@
             <div class="hero-visual slide-in-right">
                 <div class="profile-card">
                     <div class="profile-image">
-                        <i class="fas fa-user"></i>
+                        <img src="assets/perfill.png" alt="Serene Plummer" onerror="this.style.display='none'; this.parentElement.classList.add('fallback'); this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';">
                     </div>
                     <h3>Data Scientist</h3>
                     <p>Turning data into insights</p>
@@ -827,9 +849,7 @@
             </div>
             <div class="about-grid">
                 <div class="about-image slide-in-left">
-                    <div class="profile-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <img src="assets/about.png" alt="Serene Plummer - About" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'profile-image fallback\'><i class=\'fas fa-chart-line\'></i></div>';">
                 </div>
                 <div class="about-content slide-in-right">
                     <h3>Transforming Data into Insights</h3>
@@ -841,7 +861,7 @@
                             <div class="stat-label">Projects Completed</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">5+</div>
+                            <div class="stat-number">7+</div>
                             <div class="stat-label">Certifications</div>
                         </div>
                         <div class="stat">
