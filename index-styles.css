@@ -657,6 +657,17 @@
             font-size: 1.25rem;
         }
 
+        .contact-method a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method a:hover {
+            color: var(--primary);
+        }
+
         .contact-form {
             background: var(--bg-card);
             padding: 2rem;
