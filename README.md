@@ -4,8 +4,9 @@ Welcome to my personal portfolio! 👩‍💻
 This repository showcases my work as a Computer Science student at the University of North Texas with a focus on software engineering and AI/ML. Here you'll find front-end projects, data science coursework, and group collaborations that reflect my growing technical skills and design sensibilities.
 
 ## 🌐 Live Portfolio Website  
-🔗 [Visit my portfolio](https://serene4444.github.io/SereneP.-Portfolio/)  
-Built with HTML, CSS, Boxicons, and hosted via GitHub Pages.
+🔗 [Visit my portfolio](https://serene4444.github.io/myPortfolio/) 
+
+Built with HTML, CSS and hosted via GitHub Pages.
 
 ## 📁 Sections
 
