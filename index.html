@@ -17,6 +17,7 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#work" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <!-- <li><a href="assets/resume.pdf" class="resume-btn" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a></li> -->
@@ -262,6 +263,45 @@
         </div>
     </section>
 
+    <!-- Work Experience Section -->
+    <section id="work" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">
+                <i class="fas fa-briefcase"></i> Work Experience
+            </h2>
+            <div class="work-timeline">
+                <div class="work-item fade-in">
+                    <div class="work-date">2026 Summer</div>
+                    <div class="work-content">
+                        <h3>Data Science/Analyst Intern</h3>
+                        <h4>Seeking Internship Opportunity</h4>
+                        <p>Eager to gain hands-on experience in data science, data analysis, and machine learning through a summer internship. Looking to apply academic knowledge to real-world projects and contribute to meaningful data-driven solutions.</p>
+                        <ul>
+                            <li>Seeking opportunities in data analysis, machine learning, and predictive analytics</li>
+                            <li>Interested in working with large datasets, statistical modeling, and business intelligence</li>
+                            <li>Ready to contribute to data visualization, dashboard development, and reporting</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="work-item fade-in">
+                    <div class="work-date">Aug 2025 - Present</div>
+                    <div class="work-content">
+                        <h3>STEM Instructor</h3>
+                        <h4>iCode</h4>
+                        <p>Teaching and mentoring students in Science, Technology, Engineering, and Mathematics (STEM) concepts. Delivering engaging lessons using provided curriculum to help students build their technical skills, critical thinking, and problem-solving abilities.</p>
+                        <ul>
+                            <li>Instruct students in various STEM subjects including programming, robotics, and mathematics</li>
+                            <li>Adapt teaching methods to meet diverse student learning needs</li>
+                            <li>Mentor students in project-based learning and hands-on STEM activities</li>
+                            <li>Guide students through structured STEM curriculum and activities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section class="section" id="projects">
         <div class="container">
@@ -270,7 +310,7 @@
                 <p class="section-subtitle">A showcase of my data science and development work</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card fade-in">
+                <div class="project-card fade-in" data-job-title="Quantitative Analyst">
                     <div class="project-image">
                         <img src="assets/stock.jpg" alt="Stock Price Prediction" class="project-image">
                         <!-- <i class="fas fa-chart-line"></i> -->
@@ -292,7 +332,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card fade-in" data-job-title="Real Estate Data Scientist">
                     <div class="project-image">
                         <img src="assets/house.png" alt="California Housing Price Prediction" class="project-image">
                         <!-- <i class="fas fa-database"></i> -->
@@ -315,7 +355,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card fade-in" data-job-title="Epidemiology Data Analyst">
                     <div class="project-image">
                         <img src="assets/covid.jpg" alt="COVID-19 Data Analysis" class="project-image">
                         <!-- <i class="fas fa-virus"></i> -->
@@ -337,7 +377,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card fade-in" data-job-title="AI/ML Engineer">
                     <div class="project-image">
                         <img src="assets/chatbot.webp" alt="GenAI Chatbots Project" class="project-image">
                         <!-- <i class="fas fa-robot"></i> -->
@@ -361,7 +401,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card fade-in" data-job-title="Aerospace Data Scientist">
                     <div class="project-image">
                         <img src="assets/falconn9.png" alt="Applied Data Science Capstone: Predicting Falcon 9 Landings" class="project-image">
                         <!-- <i class="fas fa-rocket"></i> -->
@@ -383,7 +423,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card fade-in" data-job-title="Full-Stack Developer">
                     <div class="project-image">
                     <img src="assets/medical-appointment-system.jpg" alt="Medical Appointment Booking" class="project-image">
                         <!-- <i class="fas fa-calendar-alt"></i> -->
@@ -582,23 +622,22 @@
             observer.observe(el);
         });
 
-        // Animate skill progress bars when they come into view
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progressBars = entry.target.querySelectorAll('.skill-progress');
-                    progressBars.forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 300);
-                    });
-                }
-            });
-        }, observerOptions);
-
+        // Set up hover animations for skill progress bars
         document.querySelectorAll('.skill-category').forEach(category => {
-            skillObserver.observe(category);
+            const progressBars = category.querySelectorAll('.skill-progress');
+            
+            category.addEventListener('mouseenter', () => {
+                progressBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.setProperty('--data-width', width);
+                });
+            });
+            
+            category.addEventListener('mouseleave', () => {
+                progressBars.forEach(bar => {
+                    bar.style.setProperty('--data-width', '0%');
+                });
+            });
         });
 
         // Navbar background on scroll
