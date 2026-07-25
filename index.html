@@ -19,10 +19,8 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#work" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="eportfolio.html" class="nav-link">ePortfolio</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <!-- <li><a href="assets/resume.pdf" class="resume-btn" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a></li> -->
-                <li><button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button></li>
             </ul>
             <button class="mobile-toggle" id="mobile-toggle">
                 <i class="fas fa-bars"></i>
@@ -85,7 +83,7 @@
                 <div class="about-content slide-in-right">
                     <h3>Transforming Data into Insights</h3>
                     <p>I’m Serene, an early-career software engineer with a background in Python, SQL, and machine learning. I love taking on complex problems, exploring data, and building predictive models that lead to smarter decisions. Along the way, I’ve gained hands-on experience in data visualization, ETL pipelines, and full-stack development, which gives me a well-rounded approach to solving data challenges.</p>
-                    <p>Originally from Seattle, the outdoors has always felt like home to me. Whether I’m hiking mountain trails, snowboarding fresh powder, or traveling to breathtaking places like Colorado or upstate New York, I find my energy in nature and the adventure of new landscapes.</p>
+                    <p>Originally from Seattle, the outdoors has always felt like home to me. Whether I’m hiking mountain trails, snowboarding fresh powder, or traveling to breathtaking places like Colorado, Chicago, Austin, or upstate New York, I find my energy in nature and the adventure of new landscapes.</p>
                     <p>I’m always learning—through certifications, projects, and real-world applications—and I’m driven by the idea of using data science to make a real impact while continuing to grow both professionally and personally.</p>
                     <div class="stats">
                         <div class="stat">
@@ -761,34 +759,6 @@
                 });
             }
 
-            // Theme toggle (guarded)
-            const themeToggle = document.getElementById('theme-toggle');
-            try {
-                const savedTheme = localStorage.getItem('theme') || 'light';
-                if (themeToggle) {
-                    if (savedTheme === 'dark') {
-                        body.setAttribute('data-theme', 'dark');
-                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                    }
-
-                    themeToggle.addEventListener('click', () => {
-                        const current = body.getAttribute('data-theme');
-                        if (current === 'dark') {
-                            body.removeAttribute('data-theme');
-                            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                            localStorage.setItem('theme', 'light');
-                        } else {
-                            body.setAttribute('data-theme', 'dark');
-                            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                            localStorage.setItem('theme', 'dark');
-                        }
-                    });
-                }
-            } catch (e) {
-                // localStorage may be disabled in some contexts; fail silently
-                console.warn('Theme toggle: localStorage unavailable', e);
-            }
-
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -854,18 +824,14 @@
                 });
             });
 
-            // Navbar background on scroll (keeps theme aware colors)
+            // Navbar background on scroll
             const nav = document.querySelector('.nav');
             function updateNavBg() {
                 if (!nav) return;
                 if (window.scrollY > 100) {
-                    nav.style.background = body.getAttribute('data-theme') === 'dark'
-                        ? 'rgba(15, 23, 42, 0.98)'
-                        : 'rgba(255, 255, 255, 0.98)';
+                    nav.style.background = 'rgba(15, 23, 42, 0.98)';
                 } else {
-                    nav.style.background = body.getAttribute('data-theme') === 'dark'
-                        ? 'rgba(15, 23, 42, 0.95)'
-                        : 'rgba(255, 255, 255, 0.95)';
+                    nav.style.background = 'rgba(15, 23, 42, 0.95)';
                 }
             }
             window.addEventListener('scroll', updateNavBg);

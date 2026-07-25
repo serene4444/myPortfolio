@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Manrope, IBM_Plex_Mono } from 'next/font/google'
-import Script from 'next/script'
 import type { ReactNode } from 'react'
 import './globals.css'
 
@@ -13,11 +12,11 @@ export const metadata: Metadata = {
     template: '%s | Serene Plummer'
   },
   description:
-    'Premium portfolio for Serene Plummer showcasing software engineering, AI, machine learning, projects, and professional writing work.',
+    'Premium portfolio for Serene Plummer showcasing software engineering, AI, machine learning, and project work.',
   openGraph: {
     title: 'Serene Plummer | Software Engineer & AI Engineer Portfolio',
     description:
-      'A polished portfolio showcasing software engineering, AI, machine learning, projects, and professional communication work.',
+      'A polished portfolio showcasing software engineering, AI, machine learning, and project work.',
     type: 'website'
   },
   twitter: {
@@ -27,11 +26,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body className={`${manrope.variable} ${plexMono.variable} bg-slate-950 text-slate-100 antialiased`}>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=d?'dark':'light';}catch(e){document.documentElement.dataset.theme='dark';}})();`}
-        </Script>
         {children}
       </body>
     </html>

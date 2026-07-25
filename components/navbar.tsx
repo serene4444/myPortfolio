@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { navItems } from '@/lib/content'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { Icon } from '@/components/icon'
 
 export function Navbar() {
@@ -25,10 +24,8 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          <ThemeToggle />
         </nav>
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}

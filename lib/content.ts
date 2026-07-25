@@ -45,31 +45,12 @@ export type ContactItem = {
   icon: string
 }
 
-export type DocumentItem = {
-  title: string
-  type: string
-  description: string
-  href: string
-  downloadHref?: string
-  icon: string
-  badge: string
-}
-
-export type UnitItem = {
-  id: string
-  title: string
-  icon: string
-  description: string
-  docs: DocumentItem[]
-}
-
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
-  { label: 'ePortfolio', href: '/eportfolio' },
   { label: 'Contact', href: '#contact' }
 ]
 
@@ -229,102 +210,3 @@ export const contactItems: ContactItem[] = [
   { label: 'LinkedIn', value: 'linkedin.com/in/sereneplummer', href: 'https://linkedin.com/in/sereneplummer', icon: 'linkedin' },
   { label: 'GitHub', value: 'github.com/serene4444', href: 'https://github.com/serene4444', icon: 'github' }
 ]
-
-export const units: UnitItem[] = [
-  {
-    id: '1',
-    title: 'Unit 1 — Correspondence',
-    icon: 'envelope',
-    description: 'Professional correspondence samples demonstrating audience awareness, clear purpose, and concise workplace communication.',
-    docs: [
-      {
-        title: 'Workplace Memo',
-        type: 'Memo',
-        description: 'A professional memo developed for internal stakeholders to communicate key updates, expectations, and recommended actions.',
-        href: '/assets/unit1/Memo.pdf',
-        downloadHref: '/assets/unit1/Memo.pdf',
-        icon: 'file-alt',
-        badge: 'Memo'
-      }
-    ]
-  },
-  {
-    id: '2',
-    title: 'Unit 2 — Interview, Secondary & eSurvey Reports',
-    icon: 'file-alt',
-    description: 'A consolidated research portfolio presenting interview insights, secondary-source analysis, and eSurvey findings in a single integrated report set.',
-    docs: [
-      {
-        title: 'Unit 2 Research',
-        type: 'Research Reports',
-        description: 'Interview, secondary research, and eSurvey reports compiled into one professional submission.',
-        href: '/assets/unit%203/Unit%202%20Interview,%20Secondary,%20eSurvey%20Reports.pdf',
-        downloadHref: '/assets/unit%203/Unit%202%20Interview,%20Secondary,%20eSurvey%20Reports.pdf',
-        icon: 'file-alt',
-        badge: 'Research Reports'
-      }
-    ]
-  },
-  {
-    id: '3',
-    title: 'Unit 3 — Proposal',
-    icon: 'lightbulb',
-    description: 'A proposal section designed to present a clear recommendation, evidence-based rationale, and actionable next steps.',
-    docs: [
-      {
-        title: 'Proposal',
-        type: 'Proposal',
-        description: 'A formal proposal outlining the problem context, supporting rationale, and a recommended solution for implementation.',
-        href: '/assets/unit%203/Unit%202%20Interview,%20Secondary,%20eSurvey%20Reports.pdf',
-        downloadHref: '/assets/unit%203/Unit%202%20Interview,%20Secondary,%20eSurvey%20Reports.pdf',
-        icon: 'file-contract',
-        badge: 'Proposal'
-      }
-    ]
-  },
-  {
-    id: '4',
-    title: 'Unit 4 — Formal Report',
-    icon: 'book-open',
-    description: 'A formal report section demonstrating comprehensive research, structured analysis, and professional document design.',
-    docs: [
-      {
-        title: 'Formal Report',
-        type: 'Formal Report',
-        description: 'A structured report presenting research methodology, key findings, and conclusions in a professional format.',
-        href: '/assets/unit%204/FIXED%20Unit%204%20Report.pdf',
-        downloadHref: '/assets/unit%204/FIXED%20Unit%204%20Report.pdf',
-        icon: 'scroll',
-        badge: 'Formal Report'
-      }
-    ]
-  },
-  {
-    id: '5',
-    title: 'Unit 5 — Digital Presentation',
-    icon: 'desktop',
-    description: 'A digital presentation section highlighting visual communication, narrative flow, and professional delivery of the final project.',
-    docs: [
-      {
-        title: 'Slide Deck',
-        type: 'Slide Deck',
-        description: 'The final presentation deck designed to communicate core findings, recommendations, and supporting visuals with clarity.',
-        href: '/assets/unit%205/SLIDES%20Restricting%20Identity-Linked%20Surveillance.pdf',
-        downloadHref: '/assets/unit%205/SLIDES%20Restricting%20Identity-Linked%20Surveillance.pdf',
-        icon: 'file-powerpoint',
-        badge: 'Slide Deck'
-      },
-      {
-        title: 'Presentation Recording',
-        type: 'Recording',
-        description: 'A recorded walkthrough of the final presentation, highlighting key findings, recommendations, and delivery style.',
-        href: 'https://drive.google.com/file/d/1FvKQw959mTPOdXYHzCvblgz1W3CrOda_/view?usp=sharing',
-        icon: 'video',
-        badge: 'Recording'
-      }
-    ]
-  }
-]
-
-export const eportfolioIntro =
-  'This portfolio highlights my technical writing work from TECM 4180, including research, reports, proposals, and presentations focused on artificial intelligence, privacy, and surveillance in academic settings. Throughout these projects, I analyze real problems, use both primary and secondary research, and present clear, realistic solutions. Overall, my work reflects my focus on ethical technology use and my ability to communicate ideas in a professional, straightforward way.'

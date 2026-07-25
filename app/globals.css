@@ -11,15 +11,6 @@
   --accent-2: 167 139 250;
 }
 
-:root[data-theme='light'] {
-  --background: 248 250 252;
-  --foreground: 15 23 42;
-  --muted: 71 85 105;
-  --border: 15 23 42;
-  --accent: 14 165 233;
-  --accent-2: 99 102 241;
-}
-
 html {
   background: rgb(var(--background));
 }
