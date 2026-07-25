@@ -29,7 +29,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NODE_ENV: production
       NEXT_TELEMETRY_DISABLED: 1
     steps:
       - name: Checkout
@@ -84,6 +83,8 @@ jobs:
       - name: Remove stale incremental type cache
         run: rm -f .next/cache/.tsbuildinfo
       - name: Build with Next.js
+        env:
+          NODE_ENV: production
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Verify export artifact
         run: |
