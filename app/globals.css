@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 8 15 30;
+  --foreground: 226 232 240;
+  --muted: 148 163 184;
+  --border: 255 255 255;
+  --accent: 56 189 248;
+  --accent-2: 167 139 250;
+}
+
+:root[data-theme='light'] {
+  --background: 248 250 252;
+  --foreground: 15 23 42;
+  --muted: 71 85 105;
+  --border: 15 23 42;
+  --accent: 14 165 233;
+  --accent-2: 99 102 241;
+}
+
+html {
+  background: rgb(var(--background));
+}
+
+body {
+  min-height: 100vh;
+  color: rgb(var(--foreground));
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 32%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.12), transparent 28%),
+    rgb(var(--background));
+}
+
+* {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+::selection {
+  background: rgba(125, 211, 252, 0.28);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(125, 211, 252, 0.9), rgba(167, 139, 250, 0.9));
+  border-radius: 999px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.glass-panel {
+  @apply border border-white/10 bg-white/5 shadow-soft backdrop-blur-xl;
+}
