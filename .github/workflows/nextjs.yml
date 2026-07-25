@@ -28,9 +28,14 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: 1
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -49,10 +54,13 @@ jobs:
             exit 1
           fi
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "20.x"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache-dependency-path: |
+            package-lock.json
+            yarn.lock
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -67,14 +75,21 @@ jobs:
           path: |
             .next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json', 'yarn.lock') }}-${{ hashFiles('next.config.*', 'tsconfig.json', 'tailwind.config.*', 'postcss.config.*', 'app/**/*.[jt]s', 'app/**/*.[jt]sx', 'components/**/*.[jt]s', 'components/**/*.[jt]sx', 'lib/**/*.[jt]s', 'lib/**/*.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json', 'yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Verify export artifact
+        run: |
+          if [ ! -d "out" ]; then
+            echo "Expected static export directory 'out' was not generated."
+            echo "Confirm Next.js static export configuration for GitHub Pages is active."
+            exit 1
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
