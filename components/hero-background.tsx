@@ -27,26 +27,26 @@ export function HeroBackground() {
           pointerEvents="none"
         >
           <ShaderGradient
-            type="plane"
             animate="on"
-            shader="defaults"
             control="props"
+            brightness={1}
             cAzimuthAngle={180}
-            cPolarAngle={92}
-            cDistance={3.8}
-            color1="#3B82F6"
-            color2="#6366F1"
-            color3="#8B5CF6"
-            uSpeed={0.12}
-            uStrength={3.4}
-            uDensity={1.25}
-            uFrequency={5.4}
-            reflection={0.05}
-            brightness={1.08}
-            grain="off"
+            cDistance={2.8}
+            cPolarAngle={80}
+            color1="#606080"
+            color2="#8d7dca"
+            color3="#212121"
+            grain="on"
             lightType="3d"
-            enableTransition
-            enableCameraUpdate
+            reflection={0.1}
+            rotationX={50}
+            rotationY={0}
+            rotationZ={-60}
+            type="waterPlane"
+            uDensity={1.5}
+            uSpeed={0.3}
+            uStrength={1.5}
+            wireframe={false}
           />
         </ShaderGradientCanvas>
       </div>
