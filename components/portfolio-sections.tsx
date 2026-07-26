@@ -65,7 +65,7 @@ export function HeroSection({ background }: HeroProps) {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-white/10 p-4 shadow-glow backdrop-blur-2xl">
               <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/55 p-4">
                 <div className="overflow-hidden rounded-[1.2rem] border border-white/10 bg-slate-900/50">
-                  <Image src="/assets/workinghard.jpg" alt="Serene Plummer" width={960} height={1120} className="h-[32rem] w-full object-cover object-center" priority />
+                  <Image src="/myPortfolio/assets/workinghard.jpg" alt="Serene Plummer" width={960} height={1120} className="h-[32rem] w-full object-cover object-center" priority />
                 </div>
                 <div className="absolute left-8 top-8 rounded-full border border-cyan-300/30 bg-slate-950/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-100 backdrop-blur">
                   Software Engineer
@@ -102,7 +102,7 @@ export function AboutSection() {
         <div className="mt-14 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <Reveal className="relative">
             <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-soft">
-              <Image src="/assets/selfie.jpg" alt="Serene Plummer - About" width={960} height={1200} className="h-[34rem] w-full rounded-[1.5rem] object-cover object-center" />
+              <Image src="/myPortfolio/assets/selfie.jpg" alt="Serene Plummer - About" width={960} height={1200} className="h-[34rem] w-full rounded-[1.5rem] object-cover object-center" />
             </div>
             <div className="absolute -bottom-5 left-6 rounded-2xl border border-cyan-300/20 bg-slate-950/90 px-5 py-4 shadow-soft backdrop-blur-xl">
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-cyan-200/80">Seattle-rooted</p>

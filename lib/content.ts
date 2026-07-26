@@ -127,7 +127,7 @@ export const experiences: ExperienceItem[] = [
     period: 'Summer 2026',
     role: 'Software Engineering Internship',
     organization: 'Fidelity',
-    logo: '/assets/fidelity.png',
+    logo: '/myPortfolio/assets/fidelity.png',
     description: 'Joining Fidelity as a Software Engineering Intern to contribute to production-quality software and data-driven features. I’ll collaborate with cross-functional teams to implement reliable services, integrate data pipelines and models, and deliver clean, testable code that supports business objectives.',
     bullets: ['Additional details coming soon.']
   },
@@ -135,7 +135,7 @@ export const experiences: ExperienceItem[] = [
     period: 'Spring 2026',
     role: 'Data & Insights Internship',
     organization: 'CommonPoint',
-    logo: '/assets/commonpoint.webp',
+    logo: '/myPortfolio/assets/commonpoint.webp',
     description: '',
     bullets: ['Additional details coming soon.']
   },
@@ -143,7 +143,7 @@ export const experiences: ExperienceItem[] = [
     period: 'Aug 2025 - Present',
     role: 'STEM Instructor',
     organization: 'iCode',
-    logo: '/assets/icode-logo.png',
+    logo: '/myPortfolio/assets/icode-logo.png',
     description: 'Teaching and mentoring students in Science, Technology, Engineering, and Mathematics (STEM) concepts. Delivering engaging lessons using provided curriculum to help students build their technical skills, critical thinking, and problem-solving abilities.',
     bullets: [
       'Instruct students in various STEM subjects including programming, robotics, and mathematics',
@@ -158,7 +158,7 @@ export const projects: ProjectItem[] = [
   {
     title: 'AAPL Stock Price Prediction',
     description: 'Machine learning model to predict stock prices using historical data and technical indicators. Implemented using Python, Pandas, and Scikit-learn.',
-    image: '/assets/stock.jpg',
+    image: '/myPortfolio/assets/stock.jpg',
     imageAlt: 'Stock Price Prediction',
     tech: ['Python', 'Pandas', 'Scikit-learn', 'Matplotlib'],
     href: 'https://github.com/serene4444/Prediciting-Stock-Prices'
@@ -166,7 +166,7 @@ export const projects: ProjectItem[] = [
   {
     title: 'California Housing Price Prediction',
     description: 'A machine learning project that predicts California housing prices using NumPy and Pandas. Built in Jupyter Notebook, it demonstrates data cleaning, feature exploration, and linear regression for cost prediction.',
-    image: '/assets/house.png',
+    image: '/myPortfolio/assets/house.png',
     imageAlt: 'California Housing Price Prediction',
     tech: ['Python', 'Jupyter', 'NumPy', 'Scikit-learn', 'Matplotlib'],
     href: 'https://github.com/serene4444/Python-Project-for-Data-Science'
@@ -174,7 +174,7 @@ export const projects: ProjectItem[] = [
   {
     title: 'COVID-19 Data Analysis',
     description: 'Exploratory data analysis of COVID-19 trends and patterns using Python. Features interactive visualizations and statistical insights.',
-    image: '/assets/covid.jpg',
+    image: '/myPortfolio/assets/covid.jpg',
     imageAlt: 'COVID-19 Data Analysis',
     tech: ['Python', 'Pandas', 'Plotly', 'Statistics'],
     href: 'https://github.com/serene4444/COVID19-Data-Analysis-Using-Python'
@@ -182,7 +182,7 @@ export const projects: ProjectItem[] = [
   {
     title: 'GenAI Chatbots Project',
     description: 'Development of AI-powered chatbots using generative AI technologies. Explores natural language processing and conversational AI.',
-    image: '/assets/chatbot.webp',
+    image: '/myPortfolio/assets/chatbot.webp',
     imageAlt: 'GenAI Chatbots Project',
     tech: ['Python', 'NLP', 'AI/ML', 'APIs', 'OpenAI', 'LLM Applications'],
     href: 'https://github.com/serene4444/GenAI-Chatbots-Project'
@@ -190,7 +190,7 @@ export const projects: ProjectItem[] = [
   {
     title: 'Applied Data Science Capstone: Predicting Falcon 9 Landings',
     description: 'Final IBM Data Science Professional Certificate project. Built predictive models, visual analytics, and interactive dashboards to determine whether SpaceX Falcon 9 first stages will land successfully.',
-    image: '/assets/falconn9.png',
+    image: '/myPortfolio/assets/falconn9.png',
     imageAlt: 'Applied Data Science Capstone',
     tech: ['Python', 'Machine Learning', 'Data Visualization', 'Model Deployment'],
     href: 'https://github.com/serene4444/Data-Science-Capstone/blob/main/README.md'
@@ -198,7 +198,7 @@ export const projects: ProjectItem[] = [
   {
     title: 'Medical Appointment Booking',
     description: 'A web application that allows users to schedule and manage medical appointments efficiently, featuring form validation, dynamic routing, and a responsive interface.',
-    image: '/assets/medical-appointment-system.jpg',
+    image: '/myPortfolio/assets/medical-appointment-system.jpg',
     imageAlt: 'Medical Appointment Booking',
     tech: ['JavaScript', 'React', 'Node.js', 'HTML', 'CSS'],
     href: 'https://github.com/serene4444/Medical-Appointment-Booking/tree/gh-pages'
