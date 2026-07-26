@@ -65,7 +65,7 @@ export function HeroSection({ background }: HeroProps) {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-white/10 p-4 shadow-glow backdrop-blur-2xl">
               <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/55 p-4">
                 <div className="overflow-hidden rounded-[1.2rem] border border-white/10 bg-slate-900/50">
-                  <Image src="/assets/workinghard.webp" alt="Serene Plummer" width={960} height={1120} className="h-[32rem] w-full object-cover object-center" priority />
+                  <Image src="/assets/workinghard.jpg" alt="Serene Plummer" width={960} height={1120} className="h-[32rem] w-full object-cover object-center" priority />
                 </div>
                 <div className="absolute left-8 top-8 rounded-full border border-cyan-300/30 bg-slate-950/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-100 backdrop-blur">
                   Software Engineer

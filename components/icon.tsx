@@ -8,7 +8,6 @@ type IconName =
   | 'github'
   | 'graduation'
   | 'arrow-right'
-  | 'code-2'
   | 'menu'
   | 'close'
 
@@ -87,8 +86,6 @@ export function Icon({ name, className = 'h-5 w-5' }: IconProps) {
           <path className={common} d="m13 6 6 6-6 6" />
         </svg>
       )
-    case 'code-2':
-      return <Icon name="code" className={className} />
     case 'menu':
       return (
         <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
