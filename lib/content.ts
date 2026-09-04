@@ -1,212 +1,230 @@
-export type NavItem = {
-  label: string
-  href: string
-}
-
 export type SocialLink = {
   label: string
   href: string
-  icon: string
+  icon: 'mail' | 'linkedin' | 'github' | 'download'
 }
 
-export type SkillItem = {
-  name: string
-  level: number
-}
-
-export type SkillCategory = {
-  title: string
-  icon: string
-  items: SkillItem[]
+export type CurrentlyItem = {
+  label: string
+  value: string
+  accent: 'orange' | 'lavender'
+  tilt: string
 }
 
 export type ExperienceItem = {
+  id: string
   period: string
   role: string
   organization: string
-  logo: string
-  description: string
+  location: string
   bullets: string[]
 }
 
-export type ProjectItem = {
+export type SketchKind = 'traj' | 'bars' | 'orbits'
+
+export type FeatureProject = {
+  num: string
+  kicker: string
   title: string
-  description: string
-  image: string
-  imageAlt: string
+  meta: string
+  plateTitle: string
+  plateNote: string
+  body: string
   tech: string[]
   href: string
+  cta: string
+  tilt: string
+  plate: string
+  plateInk: string
+  sketch: SketchKind
 }
 
-export type ContactItem = {
-  label: string
-  value: string
+export type OlderProject = {
+  title: string
+  category: 'AI & ML' | 'Data Science' | 'Web'
+  description: string
   href: string
-  icon: string
+  tilt: string
 }
 
-export const navItems: NavItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' }
+export const resumeHref = '/myPortfolio/Serene-Plummer-Resume.pdf'
+
+export const heroFacts = [
+  { key: 'role', value: 'software engineer' },
+  { key: 'focus', value: 'AI agents · RAG · MCP' },
+  { key: 'cloud', value: 'AWS · terraform' },
+  { key: 'edu', value: "UNT CS '28 · 4.0" },
+  { key: 'base', value: 'Dallas → Chicago' },
+  { key: 'open', value: 'summer 2027' }
 ]
 
-export const socials: SocialLink[] = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sereneplummer/', icon: 'linkedin' },
-  { label: 'GitHub', href: 'https://github.com/serene4444', icon: 'github' },
-  { label: 'Coursera', href: 'https://www.coursera.org/learner/sereneplummer', icon: 'graduation' }
-]
-
-export const heroStats = [
-  { label: 'Projects Completed', value: '15+' },
-  { label: 'Certifications', value: '13+' },
-  { label: 'Years Experience', value: '3+' }
-]
-
-export const aboutParagraphs = [
-  'I’m Serene, an early-career software engineer with a background in Python, SQL, and machine learning. I love taking on complex problems, exploring data, and building predictive models that lead to smarter decisions. Along the way, I’ve gained hands-on experience in data visualization, ETL pipelines, and full-stack development, which gives me a well-rounded approach to solving data challenges.',
-  'Originally from Seattle, the outdoors has always felt like home to me. Whether I’m hiking mountain trails, snowboarding fresh powder, or traveling to breathtaking places like Colorado or upstate New York, I find my energy in nature and the adventure of new landscapes.',
-  'I’m always learning through certifications, projects, and real-world applications, and I’m driven by the idea of using data science to make a real impact while continuing to grow both professionally and personally.'
-]
-
-export const skillMarquee = [
-  'Python', 'JavaScript', 'SQL', 'HTML/CSS', 'Pandas', 'NumPy', 'TensorFlow', 'PyTorch', 'Matplotlib', 'Plotly', 'Tableau', 'Git', 'GitHub', 'VS Code', 'Excel', 'Figma', 'React', 'MongoDB', 'MySQL', 'Machine Learning', 'Data Analysis', 'Data Visualization'
-]
-
-export const skillCategories: SkillCategory[] = [
-  {
-    title: 'Programming Languages',
-    icon: 'code',
-    items: [
-      { name: 'Python', level: 85 },
-      { name: 'SQL', level: 75 },
-      { name: 'C++', level: 70 },
-      { name: 'HTML/CSS', level: 80 },
-      { name: 'JavaScript', level: 65 }
-    ]
-  },
-  {
-    title: 'Data Science & ML',
-    icon: 'brain',
-    items: [
-      { name: 'Pandas & NumPy', level: 90 },
-      { name: 'Scikit-learn', level: 80 },
-      { name: 'Matplotlib/Seaborn', level: 85 },
-      { name: 'TensorFlow', level: 60 },
-      { name: 'Requests', level: 75 }
-    ]
-  },
-  {
-    title: 'Tools & Frameworks',
-    icon: 'tools',
-    items: [
-      { name: 'Git & GitHub', level: 80 },
-      { name: 'Dash & FastAPI', level: 70 },
-      { name: 'Docker', level: 55 },
-      { name: 'ETL Processes', level: 75 }
-    ]
-  },
-  {
-    title: 'Soft Skills',
-    icon: 'users',
-    items: [
-      { name: 'Communication', level: 90 },
-      { name: 'Problem Solving', level: 85 },
-      { name: 'Team Collaboration', level: 80 },
-      { name: 'Critical Thinking', level: 85 },
-      { name: 'Adaptability', level: 80 }
-    ]
-  }
+export const currentlyItems: CurrentlyItem[] = [
+  { label: 'Building', value: 'Stellar Genesis — planet evolution loop, v2', accent: 'orange', tilt: '-1.6deg' },
+  { label: 'Somewhere', value: 'Katy Trail, and a great many gym sessions', accent: 'lavender', tilt: '1.2deg' },
+  { label: 'Open to', value: 'Summer 2027 internships', accent: 'orange', tilt: '-.8deg' }
 ]
 
 export const experiences: ExperienceItem[] = [
   {
-    period: 'Summer 2026',
-    role: 'Software Engineering Internship',
-    organization: 'Fidelity',
-    logo: '/myPortfolio/assets/fidelity.png',
-    description: 'Joining Fidelity as a Software Engineering Intern to contribute to production-quality software and data-driven features. I’ll collaborate with cross-functional teams to implement reliable services, integrate data pipelines and models, and deliver clean, testable code that supports business objectives.',
-    bullets: ['Additional details coming soon.']
-  },
-  {
-    period: 'Spring 2026',
-    role: 'Data & Insights Internship',
-    organization: 'CommonPoint',
-    logo: '/myPortfolio/assets/commonpoint.webp',
-    description: '',
-    bullets: ['Additional details coming soon.']
-  },
-  {
-    period: 'Aug 2025 - Present',
-    role: 'STEM Instructor',
-    organization: 'iCode',
-    logo: '/myPortfolio/assets/icode-logo.png',
-    description: 'Teaching and mentoring students in Science, Technology, Engineering, and Mathematics (STEM) concepts. Delivering engaging lessons using provided curriculum to help students build their technical skills, critical thinking, and problem-solving abilities.',
+    id: 'nb-idx',
+    period: 'Fall 2026 — present',
+    role: 'AWS Cloud Engineer',
+    organization: 'IDX Exchange',
+    location: 'Boise, ID',
     bullets: [
-      'Instruct students in various STEM subjects including programming, robotics, and mathematics',
-      'Adapt teaching methods to meet diverse student learning needs',
-      'Mentor students in project-based learning and hands-on STEM activities',
-      'Guide students through structured STEM curriculum and activities'
+      'Architected production AWS across EC2, S3, RDS, DynamoDB, VPC, Lambda, API Gateway and ECS Fargate with least-privilege IAM, load balancing and auto-scaling.',
+      'Automated infrastructure and deploys with Terraform and GitHub Actions — keyless AWS auth, secrets management, monitoring.',
+      'Cost optimization, data governance and disaster-recovery strategy cut manual infrastructure work.'
+    ]
+  },
+  {
+    id: 'nb-fid',
+    period: 'Summer 2026',
+    role: 'Software Engineer Intern',
+    organization: 'Fidelity Investments',
+    location: 'Westlake, TX',
+    bullets: [
+      'Engineered AI agents with RAG, MCP integrations and prompt engineering to automate code quality and testing — contributing to a 60% reduction in deployment cycles.',
+      'Built Java and Spring Boot test automation against Oracle and MySQL, catching defects earlier and cutting manual QA.',
+      'Partnered with engineers and stakeholders across Git, Jira and CI/CD to improve release reliability.'
+    ]
+  },
+  {
+    id: 'nb-cp',
+    period: 'Spring 2026',
+    role: 'Data Analytics Intern',
+    organization: 'Common Point',
+    location: 'New York, NY',
+    bullets: [
+      'Architected automated analysis workflows with AI tooling and Google Cloud to streamline organizational research.',
+      'Built frameworks synthesizing qualitative and quantitative data through advanced categorization to surface trends.',
+      'Cleaned, structured and audited high-fidelity datasets; visualized findings in Tableau.'
+    ]
+  },
+  {
+    id: 'nb-ic',
+    period: 'Fall 2025 — present',
+    role: 'STEM & Coding Instructor',
+    organization: 'iCode School',
+    location: 'McKinney, TX',
+    bullets: [
+      'Mentored students to a 35% improvement in problem-solving across STEM and robotics projects.',
+      'Designed interactive lessons in Scratch, robotics, AI concepts, digital logic and prompt engineering.',
+      'Raised engagement scores 40% by making hard technical ideas age-appropriate.'
     ]
   }
 ]
 
-export const projects: ProjectItem[] = [
+export const featureProjects: FeatureProject[] = [
   {
-    title: 'AAPL Stock Price Prediction',
-    description: 'Machine learning model to predict stock prices using historical data and technical indicators. Implemented using Python, Pandas, and Scikit-learn.',
-    image: '/myPortfolio/assets/stock.jpg',
-    imageAlt: 'Stock Price Prediction',
-    tech: ['Python', 'Pandas', 'Scikit-learn', 'Matplotlib'],
-    href: 'https://github.com/serene4444/Prediciting-Stock-Prices'
+    num: '01',
+    kicker: 'Classifier study',
+    title: 'SpaceX Mission Success Predictor',
+    meta: 'Summer 2025',
+    plateTitle: 'FALCON 9 LANDING OUTCOMES',
+    plateNote: '95% accurate, 2,500+ records',
+    body: 'End-to-end pipeline — scraping, wrangling, feature engineering, EDA — then SVM, Decision Tree and k-NN compared in Python to predict Falcon 9 first-stage landings. Optimized preprocessing accelerated analysis by 60%.',
+    tech: ['Python', 'Scikit-learn', 'Pandas', 'Matplotlib'],
+    href: 'https://github.com/serene4444/Data-Science-Capstone/blob/main/README.md',
+    cta: 'Read the write-up',
+    tilt: '-.5deg',
+    plate: '#112a52',
+    plateInk: '#dce9ff',
+    sketch: 'traj'
   },
   {
-    title: 'California Housing Price Prediction',
-    description: 'A machine learning project that predicts California housing prices using NumPy and Pandas. Built in Jupyter Notebook, it demonstrates data cleaning, feature exploration, and linear regression for cost prediction.',
-    image: '/myPortfolio/assets/house.png',
-    imageAlt: 'California Housing Price Prediction',
-    tech: ['Python', 'Jupyter', 'NumPy', 'Scikit-learn', 'Matplotlib'],
-    href: 'https://github.com/serene4444/Python-Project-for-Data-Science'
+    num: '02',
+    kicker: 'Full-stack AI',
+    title: 'Real-Time Sentiment Analytics Platform',
+    meta: 'Flask + Watson NLP · Spring 2026',
+    plateTitle: 'EMOTION SPECTRUM',
+    plateNote: 'POST /analyze → 0.94 positive',
+    body: 'A Python/Flask backend exposing REST APIs for NLP inference, wired to a responsive interface for real-time sentiment and emotion analysis on unstructured text. Modular pipelines separate preprocessing, inference and structured output.',
+    tech: ['Python', 'Flask', 'NLP', 'REST APIs'],
+    href: 'https://github.com/serene4444/Emotion-Detector-AI',
+    cta: 'View the code',
+    tilt: '.4deg',
+    plate: '#3d1f28',
+    plateInk: '#ffe2e2',
+    sketch: 'bars'
   },
   {
-    title: 'COVID-19 Data Analysis',
-    description: 'Exploratory data analysis of COVID-19 trends and patterns using Python. Features interactive visualizations and statistical insights.',
-    image: '/myPortfolio/assets/covid.jpg',
-    imageAlt: 'COVID-19 Data Analysis',
-    tech: ['Python', 'Pandas', 'Plotly', 'Statistics'],
-    href: 'https://github.com/serene4444/COVID19-Data-Analysis-Using-Python'
-  },
-  {
-    title: 'GenAI Chatbots Project',
-    description: 'Development of AI-powered chatbots using generative AI technologies. Explores natural language processing and conversational AI.',
-    image: '/myPortfolio/assets/chatbot.webp',
-    imageAlt: 'GenAI Chatbots Project',
-    tech: ['Python', 'NLP', 'AI/ML', 'APIs', 'OpenAI', 'LLM Applications'],
-    href: 'https://github.com/serene4444/GenAI-Chatbots-Project'
-  },
-  {
-    title: 'Applied Data Science Capstone: Predicting Falcon 9 Landings',
-    description: 'Final IBM Data Science Professional Certificate project. Built predictive models, visual analytics, and interactive dashboards to determine whether SpaceX Falcon 9 first stages will land successfully.',
-    image: '/myPortfolio/assets/falconn9.png',
-    imageAlt: 'Applied Data Science Capstone',
-    tech: ['Python', 'Machine Learning', 'Data Visualization', 'Model Deployment'],
-    href: 'https://github.com/serene4444/Data-Science-Capstone/blob/main/README.md'
-  },
-  {
-    title: 'Medical Appointment Booking',
-    description: 'A web application that allows users to schedule and manage medical appointments efficiently, featuring form validation, dynamic routing, and a responsive interface.',
-    image: '/myPortfolio/assets/medical-appointment-system.jpg',
-    imageAlt: 'Medical Appointment Booking',
-    tech: ['JavaScript', 'React', 'Node.js', 'HTML', 'CSS'],
-    href: 'https://github.com/serene4444/Medical-Appointment-Booking/tree/gh-pages'
+    num: '03',
+    kicker: 'Idle simulation',
+    title: 'Stellar Genesis',
+    meta: 'React · TypeScript · Zustand · Fall 2026 — present',
+    plateTitle: 'SOLAR SYSTEM GENESIS',
+    plateNote: 'concept to build in two days',
+    body: 'A cinematic space clicker: players generate resources, evolve planets, research technologies and automate production across a growing solar system. Modular state, a custom game loop, persistent saves and data-driven progression.',
+    tech: ['React', 'TypeScript', 'Vite', 'Zustand'],
+    href: 'https://github.com/serene4444/Space-Clicker-Game-Design',
+    cta: 'Play the game',
+    tilt: '-.3deg',
+    plate: '#1b2145',
+    plateInk: '#e3e6ff',
+    sketch: 'orbits'
   }
 ]
 
-export const contactItems: ContactItem[] = [
-  { label: 'Email', value: 'sereneplmr@gmail.com', href: 'mailto:sereneplmr@gmail.com', icon: 'mail' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/sereneplummer', href: 'https://linkedin.com/in/sereneplummer', icon: 'linkedin' },
-  { label: 'GitHub', value: 'github.com/serene4444', href: 'https://github.com/serene4444', icon: 'github' }
+export const olderProjectFilters = ['All', 'AI & ML', 'Data Science', 'Web'] as const
+
+export const olderProjects: OlderProject[] = [
+  {
+    title: 'AAPL Stock Price Prediction',
+    category: 'AI & ML',
+    description: 'ML model predicting stock prices from historical data and technical indicators.',
+    href: 'https://github.com/serene4444/Prediciting-Stock-Prices',
+    tilt: '-.6deg'
+  },
+  {
+    title: 'California Housing Prices',
+    category: 'AI & ML',
+    description: 'Linear regression in Jupyter — cleaning, feature exploration, cost prediction.',
+    href: 'https://github.com/serene4444/Python-Project-for-Data-Science',
+    tilt: '.5deg'
+  },
+  {
+    title: 'COVID-19 Data Analysis',
+    category: 'Data Science',
+    description: 'Exploratory analysis of trends with interactive visualizations and statistics.',
+    href: 'https://github.com/serene4444/COVID19-Data-Analysis-Using-Python',
+    tilt: '-.4deg'
+  },
+  {
+    title: 'GenAI Chatbots',
+    category: 'AI & ML',
+    description: 'OpenAI-powered chatbots exploring NLP and conversational AI, deployed end to end.',
+    href: 'https://github.com/serene4444/GenAI-Chatbots-Project',
+    tilt: '.6deg'
+  },
+  {
+    title: 'Medical Appointment Booking',
+    category: 'Web',
+    description: 'Scheduling app with validation, dynamic routing and a responsive interface.',
+    href: 'https://github.com/serene4444/Medical-Appointment-Booking/tree/gh-pages',
+    tilt: '-.5deg'
+  },
+  {
+    title: 'Portfolio Site',
+    category: 'Web',
+    description: 'Statically exported Next.js portfolio deployed on GitHub Pages.',
+    href: 'https://github.com/serene4444/myPortfolio',
+    tilt: '.4deg'
+  }
+]
+
+export const aboutParagraph =
+  "Originally from Seattle, the outdoors has always felt like home to me. Whether I'm hiking mountain trails, snowboarding fresh powder, or traveling to breathtaking places like Colorado or upstate New York, I find my energy in nature and the adventure of new landscapes."
+
+export const aboutFacts: { label: string; value: string; accent?: boolean }[] = [
+  { label: 'Raised', value: 'Seattle, WA' },
+  { label: 'Based', value: 'Dallas, TX' },
+  { label: 'Next', value: 'Chicago, IL', accent: true }
+]
+
+export const socials: SocialLink[] = [
+  { label: 'Email', href: 'mailto:sereneplmr@gmail.com', icon: 'mail' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/serenep', icon: 'linkedin' },
+  { label: 'GitHub', href: 'https://github.com/serene4444', icon: 'github' },
+  { label: 'Résumé PDF', href: resumeHref, icon: 'download' }
 ]

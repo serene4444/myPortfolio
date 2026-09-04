@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Manrope, IBM_Plex_Mono } from 'next/font/google'
+import { Caveat, JetBrains_Mono, Playfair_Display } from 'next/font/google'
 import type { ReactNode } from 'react'
 import './globals.css'
 
-const manrope = Manrope({ subsets: ['latin'], variable: '--font-sans' })
-const plexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-mono' })
+const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-serif' })
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '600', '800'], variable: '--font-mono' })
+const caveat = Caveat({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-hand' })
 
 export const metadata: Metadata = {
   title: {
@@ -12,11 +13,10 @@ export const metadata: Metadata = {
     template: '%s | Serene Plummer'
   },
   description:
-    'Premium portfolio for Serene Plummer showcasing software engineering, AI, machine learning, and project work.',
+    'Portfolio notebook for Serene Plummer — AI agents, AWS infrastructure, and machine learning projects.',
   openGraph: {
     title: 'Serene Plummer | Software Engineer & AI Engineer Portfolio',
-    description:
-      'A polished portfolio showcasing software engineering, AI, machine learning, and project work.',
+    description: 'Portfolio notebook for Serene Plummer — AI agents, AWS infrastructure, and machine learning projects.',
     type: 'website'
   },
   twitter: {
@@ -27,9 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${manrope.variable} ${plexMono.variable} bg-slate-950 text-slate-100 antialiased`}>
-        {children}
-      </body>
+      <body className={`${playfair.variable} ${jetbrainsMono.variable} ${caveat.variable} antialiased`}>{children}</body>
     </html>
   )
 }
