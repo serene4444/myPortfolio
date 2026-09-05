@@ -14,8 +14,8 @@ export function BlinkingDotsCanvas() {
     if (!ctx) return
 
     const spacing = 34
-    const dotSize = 1.4
-    const maxOpacity = 0.232
+    const dotSize = 1.2
+    const maxOpacity = 0.09
 
     type Dot = { x: number; y: number; phase: number; speed: number }
     let dots: Dot[] = []
