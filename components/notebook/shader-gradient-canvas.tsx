@@ -11,10 +11,12 @@ const ShaderGradient = dynamic(
   { ssr: false }
 )
 
-// The cover panel's live gradient — orange-red into sand with a lavender bloom, the locked-in
-// palette from the design's shadergradient.new session (ruucm/shadergradient's <ShaderGradient>,
-// waterPlane-derived "plane" mesh, rotationZ 50 / rotationY 10, uDensity 1.3, uFrequency 5.5,
-// uStrength 4, uSpeed 0.4, brightness 1.2, film grain on).
+// The cover panel's live gradient — orange-red field with a lavender bloom drifting through it,
+// using ruucm/shadergradient's real <ShaderGradient> ("plane" mesh, color1/2/3 from the locked
+// design palette). uFrequency/uDensity are tuned well above the design-tool preview's values so
+// the pattern reads as fine grain rather than one giant zoomed-in blob, uStrength is lowered so
+// the lavender stays a soft accent instead of a hard-edged wedge that crowds out the orange, and
+// uSpeed is slow so that balance holds for the several minutes a visitor might sit on the page.
 export function ShaderGradientCanvas() {
   return (
     <ShaderGradientCanvasImpl
@@ -33,7 +35,7 @@ export function ShaderGradientCanvas() {
         color3="#d0bce1"
         cAzimuthAngle={180}
         cPolarAngle={90}
-        cDistance={3.6}
+        cDistance={4.4}
         cameraZoom={1}
         positionX={-1.4}
         positionY={0}
@@ -42,10 +44,10 @@ export function ShaderGradientCanvas() {
         rotationY={10}
         rotationZ={50}
         uAmplitude={1}
-        uDensity={1.3}
-        uFrequency={5.5}
-        uSpeed={0.4}
-        uStrength={4}
+        uDensity={2.6}
+        uFrequency={13}
+        uSpeed={0.12}
+        uStrength={2}
         uTime={0}
         reflection={0.1}
         brightness={1.2}
