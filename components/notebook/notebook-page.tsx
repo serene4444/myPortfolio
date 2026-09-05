@@ -14,6 +14,7 @@ import {
   socials,
   type OlderProject
 } from '@/lib/content'
+import { BlinkingDotsCanvas } from '@/components/notebook/blinking-dots-canvas'
 import { PaperGrainCanvas } from '@/components/notebook/paper-grain-canvas'
 import { ShaderGradientCanvas } from '@/components/notebook/shader-gradient-canvas'
 import { Sketch } from '@/components/notebook/sketches'
@@ -92,17 +93,9 @@ export function NotebookPage() {
       <section className="relative z-[1] px-4 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
         <div
           ref={containerRef}
-          className="relative mx-auto max-w-[1100px] overflow-hidden"
-          style={{
-            background: '#0f1116',
-            backgroundImage:
-              'radial-gradient(1100px 620px at 12% 8%, rgba(255,138,61,.14), transparent 62%), radial-gradient(900px 560px at 88% 42%, rgba(201,166,255,.12), transparent 60%), radial-gradient(800px 520px at 30% 86%, rgba(255,138,61,.08), transparent 62%)',
-            boxShadow: '0 24px 60px rgba(0,0,0,.55)'
-          }}
+          className="relative mx-auto max-w-[1440px] overflow-hidden"
+          style={{ background: '#000', boxShadow: '0 24px 60px rgba(0,0,0,.55)' }}
         >
-          <div className="pointer-events-none absolute inset-y-0 left-[104px] hidden w-px bg-[rgba(254,137,137,.32)] lg:block" />
-          <div className="pointer-events-none absolute inset-y-0 left-[110px] hidden w-px bg-[rgba(254,137,137,.16)] lg:block" />
-
           {/* Cover */}
           <div
             className="relative z-[5] flex min-h-[560px] flex-col justify-between overflow-hidden px-5 pb-8 pt-8 sm:px-10 lg:min-h-[780px] lg:px-16 lg:pb-12 lg:pt-14"
@@ -143,8 +136,13 @@ export function NotebookPage() {
               </p>
 
               <div
-                className="mt-7 grid w-max grid-cols-1 gap-x-14 gap-y-1.5 px-[22px] py-[18px] text-[13px] sm:grid-cols-2 sm:text-[15px] lg:grid-cols-3"
-                style={{ ...mono, lineHeight: '30px', background: 'linear-gradient(to right, rgba(0,0,0,.6), rgba(0,0,0,.42))' }}
+                className="mt-7 grid w-fit max-w-full gap-x-10 gap-y-1.5 px-[22px] py-[18px] text-[13px] sm:text-[15px]"
+                style={{
+                  ...mono,
+                  lineHeight: '30px',
+                  background: 'linear-gradient(to right, rgba(0,0,0,.6), rgba(0,0,0,.42))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, max-content))'
+                }}
               >
                 {heroFacts.map((f) => (
                   <p key={f.key} className="m-0" style={{ color: 'rgba(255,255,255,.7)', textShadow: '0 1px 8px rgba(0,0,0,.7)', whiteSpace: 'pre' }}>
@@ -168,11 +166,12 @@ export function NotebookPage() {
                 </p>
               </div>
               <a
+                data-glass="1"
                 href={resumeHref}
                 target="_blank"
                 rel="noreferrer"
-                className="whitespace-nowrap px-4 py-2.5 text-[13px] font-semibold uppercase tracking-[.08em]"
-                style={{ ...mono, background: '#f6f1ec', color: '#14100e' }}
+                className="whitespace-nowrap rounded-full px-4 py-2.5 text-[13px] font-semibold uppercase tracking-[.08em]"
+                style={{ ...mono, background: 'rgba(246,241,236,.16)', color: '#f6f1ec' }}
               >
                 Résumé.pdf ↓
               </a>
@@ -180,7 +179,9 @@ export function NotebookPage() {
           </div>
 
           {/* Notebook log */}
-          <div className="relative px-5 py-12 sm:px-10 lg:px-16 lg:pb-16 lg:pt-14 lg:pl-[152px]">
+          <div className="relative px-5 py-12 sm:px-10 lg:px-16 lg:pb-16 lg:pt-14 lg:pl-[152px]" style={{ background: '#0c0d10' }}>
+            <BlinkingDotsCanvas />
+            <div className="relative">
             <p
               className="m-0 ml-8 text-[12px] uppercase tracking-[.14em] sm:ml-16 sm:text-[13px]"
               style={{ ...mono, color: '#ff8a3d' }}
@@ -207,11 +208,12 @@ export function NotebookPage() {
                 </p>
                 <div className="mt-5 flex flex-wrap items-center gap-3.5">
                   <a
+                    data-glass="1"
                     href={resumeHref}
                     target="_blank"
                     rel="noreferrer"
-                    className="whitespace-nowrap px-5 py-3 text-[14px] tracking-[.04em]"
-                    style={{ ...mono, background: '#c9a6ff', color: '#12141a' }}
+                    className="whitespace-nowrap rounded-full px-5 py-3 text-[14px] tracking-[.04em]"
+                    style={{ ...mono, background: 'rgba(201,166,255,.18)', color: '#f6f1ec' }}
                   >
                     Résumé PDF ↓
                   </a>
@@ -240,7 +242,8 @@ export function NotebookPage() {
                     key={c.label}
                     data-pop="1"
                     data-note="1"
-                    className="w-[250px] px-[18px] pb-5 pt-4"
+                    data-glass="1"
+                    className="relative w-[250px] rounded-[14px] px-[18px] pb-5 pt-4"
                     style={{
                       background: isOrange ? 'rgba(255,138,61,.1)' : 'rgba(201,166,255,.1)',
                       border: `1px solid ${isOrange ? 'rgba(255,138,61,.4)' : 'rgba(201,166,255,.4)'}`,
@@ -312,17 +315,18 @@ export function NotebookPage() {
                 {featureProjects.map((p) => (
                   <article
                     key={p.num}
-                    className="relative"
-                    style={{ background: '#161922', border: '1px solid rgba(255,255,255,.1)', boxShadow: '0 12px 28px rgba(34,31,28,.14)', transform: `rotate(${p.tilt})` }}
+                    data-glass="1"
+                    className="relative rounded-[22px]"
+                    style={{ background: 'rgba(255,255,255,.06)', boxShadow: '0 20px 50px rgba(0,0,0,.5)', transform: `rotate(${p.tilt})` }}
                   >
                     <div
-                      className="absolute left-[-18px] top-[26px] hidden h-6 w-14 sm:block"
+                      className="absolute left-[-18px] top-[26px] z-[2] hidden h-6 w-14 sm:block"
                       style={{ background: 'rgba(226,214,182,.8)', transform: 'rotate(-8deg)', boxShadow: '0 2px 6px rgba(34,31,28,.12)' }}
                     />
-                    <div className="grid grid-cols-1 sm:grid-cols-[270px_1fr]">
+                    <div className="relative z-[1] grid grid-cols-1 sm:grid-cols-[270px_1fr]">
                       <div
                         className="flex min-h-[220px] flex-col justify-between p-6"
-                        style={{ background: p.plate, color: p.plateInk }}
+                        style={{ background: `linear-gradient(160deg, ${p.plate} 0%, rgba(255,255,255,.08) 220%)`, color: p.plateInk, border: '1px solid rgba(255,255,255,.22)' }}
                       >
                         <div>
                           <p className="m-0 text-[10px] uppercase tracking-[.2em]" style={{ ...mono, opacity: 0.75 }}>
@@ -337,7 +341,7 @@ export function NotebookPage() {
                           {p.plateNote}
                         </p>
                       </div>
-                      <div className="p-6 sm:p-7">
+                      <div className="p-6 sm:p-7" style={{ background: 'rgba(255,255,255,.05)' }}>
                         <div className="flex items-baseline gap-3">
                           <span style={{ ...serif, fontSize: 40, color: 'rgba(255,255,255,.24)' }}>{p.num}</span>
                           <div>
@@ -400,21 +404,29 @@ export function NotebookPage() {
                 {visibleProjects.map((p) => (
                   <article
                     key={p.title}
-                    className="px-[18px] pb-4 pt-[18px]"
-                    style={{ background: '#161922', border: '1px solid rgba(255,255,255,.1)', boxShadow: '0 6px 16px rgba(34,31,28,.1)', transform: `rotate(${p.tilt})` }}
+                    data-glass="1"
+                    className="rounded-2xl px-[18px] pb-4 pt-[18px]"
+                    style={{
+                      background: 'rgba(10,8,14,.55)',
+                      border: '1px solid rgba(255,255,255,.22)',
+                      boxShadow: '0 12px 30px rgba(0,0,0,.4)',
+                      transform: `rotate(${p.tilt})`
+                    }}
                   >
-                    <p className="m-0 text-[10px] uppercase tracking-[.18em]" style={{ ...mono, color: '#c9a6ff' }}>
-                      {p.category}
-                    </p>
-                    <h3 className="m-0 mt-1 leading-[1.1]" style={{ ...serif, fontSize: 22 }}>
-                      {p.title}
-                    </h3>
-                    <p className="m-0 mt-2.5 text-[12.5px] leading-[26px]" style={mono}>
-                      {p.description}
-                    </p>
-                    <a href={p.href} target="_blank" rel="noreferrer" className="mt-3 inline-block text-[12px]" style={{ ...mono, borderBottom: '1px solid #ff8a3d' }}>
-                      open ↗
-                    </a>
+                    <div className="relative z-[2]">
+                      <p className="m-0 text-[10px] font-bold uppercase tracking-[.18em]" style={{ ...mono, color: '#dcbaff' }}>
+                        {p.category}
+                      </p>
+                      <h3 className="m-0 mt-1 leading-[1.1] text-white" style={{ ...serif, fontSize: 22, textShadow: '0 1px 6px rgba(0,0,0,.5)' }}>
+                        {p.title}
+                      </h3>
+                      <p className="m-0 mt-2.5 text-[12.5px] leading-[26px]" style={{ ...mono, color: '#dcd9d4' }}>
+                        {p.description}
+                      </p>
+                      <a href={p.href} target="_blank" rel="noreferrer" className="mt-3 inline-block text-[12px]" style={{ ...mono, borderBottom: '1px solid #ff8a3d' }}>
+                        open ↗
+                      </a>
+                    </div>
                   </article>
                 ))}
               </div>
@@ -456,22 +468,20 @@ export function NotebookPage() {
                 return (
                   <a
                     key={s.label}
+                    data-glass="1"
                     href={s.href}
                     target={s.href.startsWith('http') || isResume ? '_blank' : undefined}
                     rel={s.href.startsWith('http') || isResume ? 'noreferrer' : undefined}
                     aria-label={s.label}
                     title={s.label}
-                    className="grid h-[52px] w-[52px] place-items-center transition-colors hover:!bg-[#c9a6ff] hover:!text-[#12141a]"
-                    style={
-                      isResume
-                        ? { border: '1.5px solid #c9a6ff', background: '#c9a6ff', color: '#12141a' }
-                        : { border: '1.5px solid rgba(255,255,255,.28)', color: '#e9e7ee', background: 'rgba(255,255,255,.06)' }
-                    }
+                    className="relative grid h-[52px] w-[52px] place-items-center rounded-full"
+                    style={isResume ? { background: 'rgba(201,166,255,.28)', color: '#f6f1ec' } : { color: '#e9e7ee', background: 'rgba(255,255,255,.08)' }}
                   >
                     <ContactIcon icon={s.icon} />
                   </a>
                 )
               })}
+            </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { useEffect, type RefObject } from 'react'
+import { applyLiquidGlass } from '@/components/notebook/liquid-glass'
 
 type ElWithBase = HTMLElement & { _base?: string }
 
@@ -14,6 +15,19 @@ export function useNotebookMotion(containerRef: RefObject<HTMLElement | null>) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const cleanups: Array<() => void> = []
+
+    root.querySelectorAll<HTMLElement>('[data-glass]').forEach((el) => {
+      const isPill = el.tagName === 'A'
+      const radius = isPill ? 999 : parseFloat(getComputedStyle(el).borderRadius) || 22
+      cleanups.push(
+        applyLiquidGlass(
+          el,
+          isPill
+            ? { displacementScale: 45, blurAmount: 7, cornerRadius: 999, elasticity: 0.35 }
+            : { displacementScale: 35, blurAmount: 16, cornerRadius: radius, elasticity: 0.06 }
+        )
+      )
+    })
 
     const targets = Array.from(root.querySelectorAll<HTMLElement>('h2, article, [data-tl], [data-pop], [data-photo]')).filter(
       (el) => !el.closest('svg')
