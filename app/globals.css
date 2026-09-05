@@ -93,10 +93,15 @@ a:hover {
 @keyframes nbLtr {
   from {
     opacity: 0;
-    transform: translateY(38px) rotate(-6deg);
+    filter: blur(14px);
+    transform: translateY(46px) scale(0.82) rotate(-8deg);
+  }
+  60% {
+    filter: blur(0px);
   }
   to {
     opacity: 1;
+    filter: blur(0px);
     transform: none;
   }
 }
@@ -104,7 +109,8 @@ a:hover {
 .nb-ltr {
   display: inline-block;
   opacity: 0;
-  animation: nbLtr 0.8s cubic-bezier(0.22, 1.5, 0.36, 1) forwards;
+  will-change: transform, filter, opacity;
+  animation: nbLtr 1.3s cubic-bezier(0.22, 1.6, 0.36, 1) forwards;
 }
 
 @keyframes nbCue {
